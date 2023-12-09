@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Webpage</title>
+    <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+    <div class="login">
+        <form action="/" method="POST">
+            <label for="password">Enter password:</label>
+            <input class="a" type="text" id="password" name="password" required>
+            <input class="b" type="submit" value="Submit">
+        </form>
+    </div>
+
+    <%# Help to not get back to this login.ejs page if password corrected%>
+    <script> 
+        window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+    </script>
+</body>
+</html>

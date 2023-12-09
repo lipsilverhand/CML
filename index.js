@@ -23,20 +23,20 @@ function passwordCheck(req, res, next) {
 app.use(passwordCheck);
 
 app.get('/', (req,res) => {
-    res.render("index.ejs");
+    res.render("login.ejs");
 });
 
 app.post("/", (req, res) => {
     if (userIsAuthorised) {
-        res.redirect("/main.ejs");
+        res.redirect("/index.ejs");
     } else {
         res.redirect("/");
     }
 });
 
 
-app.get('/main.ejs', (req,res) => {
-    res.render("main.ejs");
+app.get('/index.ejs', (req,res) => {
+    res.render("index.ejs");
 });
 
 app.get('/teamA.ejs', async (req, res) => {
