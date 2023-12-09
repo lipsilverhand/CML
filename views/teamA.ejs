@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team A</title>
+    <link rel="stylesheet" href="/teamA.css">
+</head>
+<body>
+    <div class="A">
+        <h2>Team Collabornation</h2>
+        <% for (let result of A_studentResults) { %>
+                <h3><%= result['studentName'] %> - </h3> 
+                <h3><%= result['url'] %></h3>
+                <% if (!result['missingParts']) { %>
+                    <p>All tasks completed! ✅</p>
+                <% } else { %>
+                    <p>Missing parts: <%= result['missingParts'] %> ❌</p>
+                <% } %>
+        <% } %>        
+    </div>
+</body>
+</html>
