@@ -7,6 +7,7 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static("public"));
 
 const keywords = ["vision", "skills", "knowledge share", "team company", "linkedin"];
@@ -159,5 +160,4 @@ const C_students = [
 const D_students = [
     { name: "Mike Williams", url: "https://wordpress.evergreen.edu/mikeexplore/" },
     { name: "Joe", url: "https://wordpress.evergreen.edu/joeg/" },
-
 ];
