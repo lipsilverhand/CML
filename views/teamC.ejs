@@ -8,16 +8,66 @@
 </head>
 <body>
     <div class="C">
-        <h2>Team Community Kinetics</h2>
-        <% for (let result of C_studentResults) { %>
-                <h3><%= result['studentName'] %> - </h3>
-                <h3><%= result['url'] %></h3>
-                <% if (!result['missingParts']) { %>
-                    <p>All tasks completed! ✅</p>
-                <% } else { %>
-                    <p>Missing parts: <%= result['missingParts'] %> ❌</p>
+        <h1>Team Community Kinetics</h1>
+
+        <% const incompleteStudents = []; %>
+
+        <% for (let i = 0; i < dataC.length; i++) { %>
+            <% const student = dataC[i]; %>
+            <% if (!studentIsComplete(student)) { %>
+                <% incompleteStudents.push(student); %>
+            <% } %>
+        <% } %>
+        
+        <% if (incompleteStudents.length > 0) { %>
+            <ul class="minor">
+                <% for (let i = 0; i < incompleteStudents.length; i++) { %>
+                    <% const student = incompleteStudents[i]; %>
+                        <div class="each">
+                            <strong><li"><%= student.name %> is missing the following tasks:</li></strong>
+                            <ul>
+                                <% if (!student.vision_board) { %>
+                                    <li>Vision Board</li>
+                                <% } %>
+                                <% if (!student.learning_compass) { %>
+                                    <li>Learning Compass</li>
+                                <% } %>
+                                <% if (!student.group_kpi) { %>
+                                    <li>Group KPI</li>
+                                <% } %>
+                                <% if (!student.vision_statement) { %>
+                                    <li>Vision Statement</li>
+                                <% } %>
+                                <% if (!student.company_iceberg) { %>
+                                    <li>Company Iceberg</li>
+                                <% } %>
+                                <% if (!student.knowledge_sharing) { %>
+                                    <li>Knowledge Sharing</li>
+                                <% } %>
+                                <% if (!student.three_skills) { %>
+                                    <li>Three Skills</li>
+                                <% } %>
+                                <% if (!student.links) { %>
+                                    <li>Links</li>
+                                <% } %>
+                            </ul>
+                        </div>
                 <% } %>
-        <% } %>        
+            </ul>
+        <% } 
+
+        function studentIsComplete(student) {
+            return student.vision_board &&
+                   student.learning_compass &&
+                   student.group_kpi &&
+                   student.vision_statement &&
+                   student.company_iceberg &&
+                   student.knowledge_sharing &&
+                   student.three_skills &&
+                   student.links;
+        }
+        %>
+        
     </div>
 </body>
 </html>
